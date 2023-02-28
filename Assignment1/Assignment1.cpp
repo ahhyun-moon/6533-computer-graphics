@@ -231,7 +231,7 @@ void display_circles(void)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   
     glColor3f(1.0f, 0.84f, 0.0f);         /* draw in golden yellow */
-    glPointSize(0.1);                     /* size of each point */
+    glPointSize(1.0);                     /* size of each point */
     glBegin(GL_POINTS);
     // Calculate scale factor
     float s = scale();
