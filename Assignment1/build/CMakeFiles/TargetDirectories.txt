@@ -1,0 +1,3 @@
+/Users/ahhyunmoon/NYU_Class/6533_Interactive CG/assignment1/build/CMakeFiles/Assignment1.dir
+/Users/ahhyunmoon/NYU_Class/6533_Interactive CG/assignment1/build/CMakeFiles/edit_cache.dir
+/Users/ahhyunmoon/NYU_Class/6533_Interactive CG/assignment1/build/CMakeFiles/rebuild_cache.dir

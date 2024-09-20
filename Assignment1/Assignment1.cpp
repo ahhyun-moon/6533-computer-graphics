@@ -1,5 +1,3 @@
-// CS-GY-6533 Assignment1
-// Ahhyun Moon (am12180@nyu.edu)
 #include <stdio.h>
 #include <math.h>
 #include <iostream>
@@ -66,13 +64,14 @@ int main(int argc, char **argv)
         /* Use both double buffering and Z buffer */
         glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
         glutInitWindowPosition(XOFF, YOFF);
+        // Use WINDOW size given above.
         glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         glutCreateWindow("Assignment 1");
         // Circle display function.
         glutDisplayFunc(display);
 
     } else if (input == 'f' || input == 'f'){
-        // Handle file input.
+        // file_in() to handle file input.
         file_in();
         // Get user input to add/skip animation.
         animation();
@@ -82,7 +81,7 @@ int main(int argc, char **argv)
         glutInitWindowPosition(XOFF, YOFF);
         glutInitWindowSize(WINDOW_WIDTH, WINDOW_HEIGHT);
         glutCreateWindow("Assignment 1");
-        // Set display_circles as display function. 
+        // Set display_circles as display func. 
         glutDisplayFunc(display_circles);
         // Set idle function for animation.
         glutIdleFunc(idle); 
@@ -150,16 +149,17 @@ void circlePoint(int x, int y) {
     draw(y, -x);
     draw(-y, -x);
 }
-// Draw_circle function derived from Bresenham’s scan-conversion algorithm. 
+// draw_circle function derived from Bresenham’s scan-conversion algorithm. 
 void draw_circle() {
     // Set first point as (r, 0)
     int x = r;
     int y = 0;
     // Set D_start 
     int d = 1 - r;
-    // Loop until y coordinate reaches x
+
+    // Loop until (x,y) where 
     while (y <= x){
-        // Draw point x,y
+            // Draw circle point
         circlePoint(x, y);
         // Increase y by 1
         y++;
@@ -226,7 +226,7 @@ void display(void)
     glFlush();                            /* render graphics */
     glutSwapBuffers();                    /* swap buffers */
 }
-// display_circles() function to display multiple circles from file input
+// display_circles function to display multiple circles from file input
 void display_circles(void)
 {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   
@@ -240,7 +240,7 @@ void display_circles(void)
         pX = round(circles_x[i] * s) + WINDOW_WIDTH/2;
         pY = round(circles_y[i] * s) + WINDOW_HEIGHT/2;
         if (animation_on){
-            // Also apply animation when animation_on
+            // Also apply animation factor when animation_on
             r = floor(circles_r[i] * s) * (circle_scale / K);
         } else {
             r = floor(circles_r[i] * s);
